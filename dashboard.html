@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <button id="btn_clickMe" onclick="ShowConfirmationModal('content');">Click Me</button>
+    <div id="content"></div>
+    <br>
+    <div id="yesConfirmationText" style="display: none;">You just clicked "Yes"</div>
+    <div id="noConfirmationText" style="display: none;">You just clicked "No"</div>    
+</body>
+<script src="confirmationModalScript.js"></script>
+<script>
+    function ShowConfirmationModal(contentId)
+    {
+        buildModal('content', ConfirmationModalCallback);
+    }
+
+    function ConfirmationModalCallback(confirmationResult)
+    {    
+        var yesDivElement = document.getElementById("yesConfirmationText");
+        var noDivElement = document.getElementById("noConfirmationText");
+
+        if(confirmationResult)
+        {            
+            yesDivElement.style.display = "block";
+            noDivElement.style.display = "none";
+        }
+        else
+        {
+            yesDivElement.style.display = "none";
+            noDivElement.style.display = "block";
+        }
+    }
+</script>
+
+</html>
